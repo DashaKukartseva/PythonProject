@@ -13,19 +13,19 @@ class PageRenderer:
 
     def render_home_page(self):
         self.context['context'] = MainPage.objects.all()
-        return self.render_page('home.html')
+        return self.render_page('HomePage.html')
 
     def render_demand_page(self):
         self.context['context'] = Relevance.objects.all()
-        return self.render_page('dem.html')
+        return self.render_page('Demend.html')
 
     def render_geography_page(self):
         self.context['context'] = Location.objects.all()
-        return self.render_page('geo.html')
+        return self.render_page('Geography.html')
 
     def render_skills_page(self):
         self.context['context'] = Abilities.objects.all()
-        return self.render_page('skill.html')
+        return self.render_page('Skills.html')
 
     def render_last_vacancy_page(self):
         last_vacancies_data = HeadHunterLV.objects.all()
@@ -38,7 +38,7 @@ class PageRenderer:
             vacancies = []
 
         self.context.update({'vacs': vacancies, 'last_vacancies': last_vacancies_data})
-        return self.render_page('lv.html')
+        return self.render_page('LastVacancy.html')
 
 
 def home_page(request):
