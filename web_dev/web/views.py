@@ -2,6 +2,8 @@ from datetime import datetime
 from django.shortcuts import render
 from .models import *
 from .utils import API
+
+
 class PageRenderer:
     def __init__(self, request):
         self.request = request
