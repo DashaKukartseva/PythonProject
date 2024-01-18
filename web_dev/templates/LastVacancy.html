@@ -17,7 +17,7 @@
             </div>
             </header>
             <main>
-            <div class="body" style="height: 1700px;">
+            <div class="body" style="height: 3900px;">
             <div class="navigation">
                 <nav>
                     <ul>
@@ -33,12 +33,13 @@
                                     href={% url 'location' %}>{{ nav.third_item }}</a></div>
                         </li>
                         <li>
-                            <div style="border-radius: 0px 15px 15px 0px; background: #61082B;"><a
-                                    style="color: #B4D0E7 !important;"
+                            <div><a
                                     href={% url 'abilities' %}>{{ nav.fourth_item }}</a></div>
                         </li>
                         <li>
-                            <div><a href={% url 'hh' %}>{{ nav.fifth_item }}</a></div>
+                            <div style="border-radius: 0px 15px 15px 0px; background: #61082B;"><a
+                                    style="color: #B4D0E7 !important;" href={% url 'hh' %}>{{ nav.fifth_item }}</a>
+                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -46,14 +47,14 @@
         {% endfor %}
 
         <div class="home_text">
-            {% for data in context.last_vacancies_data %}
+            {% for data in last_vacancies_data %}
 
                 <h1>{{ data.role_name }}</h1>
                 <div class="empty_skills"></div>
             {% endfor %}
         </div>
         <div class="LVtable" style="margin-left: 100px">
-            {% for i in content.vacs %}
+            {% for i in vacs %}
                 <h3>{{ i.name }}</h3>
                 <p>Описание: {{ i.description }}</p>
                 <p>Навыки: {{ i.key_skills }}</p>

@@ -1,8 +1,7 @@
 from datetime import datetime
 from django.shortcuts import render
 from .models import *
-
-
+from .utils import API
 class PageRenderer:
     def __init__(self, request):
         self.request = request
@@ -32,7 +31,7 @@ class PageRenderer:
 
         if last_vacancies_data:
             vacancy_to_parse = last_vacancies_data[0].vacancy_to_analyze
-            hh_api = HeadHunterVacancies(vacancy_to_parse)
+            hh_api = API(vacancy_to_parse)
             vacancies = hh_api.get_data_vacancies('2023-12-20', 10)
         else:
             vacancies = []
