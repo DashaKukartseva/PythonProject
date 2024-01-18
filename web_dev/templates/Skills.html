@@ -10,46 +10,57 @@
 <body>
 <header>
     <div class="name">
-        <p style="margin-top: 50px">Web-разработчик</p>
-        <img class="logo" src="{% static 'images/logotip.png' %}">
-    </div>
-</header>
-<main>
-    <div class="body">
-        <div class="navigation">
-            <nav>
-                <ul>
-                    <li><div><a href="/">Главная</a></div></li>
-                    <li><div><a href={% url 'demend' %}>Востребованность</a></div></li>
-                    <li><div><a href={% url 'geography' %}>География</a></div></li>
-                    <li><div style="border-radius: 0px 15px 15px 0px; background: #61082B;"><a style="color: #B4D0E7 !important;"a href={% url 'skills' %}>Навыки</a></div></li>
-                    <li><div><a href={% url 'lastVacancy' %}>Последние вакансии</a></div></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="home_text" style="top: 200px">
-            <h1>Топ-20 навыков по годам</h1>
-            <div class="tables_skills">
-<table border='1'>
-<tr><th>Год</th><th>JavaScript</th><th>PHP</th><th>MySQL</th><th>CSS</th><th>HTML</th><th>Git</th><th>jQuery</th><th>HTML5</th><th>CSS3</th><th>1С-Битрикс</th><th>ООП</th><th>SQL</th><th>CMS Wordpress</th><th>Ajax</th><th>PHP5</th><th>Bootstrap</th><th>Linux</th><th>AngularJS</th><th>C#</th><th>Python</th></tr>
-<tr><td>2015</td><td>239</td><td>225</td><td>170</td><td>159</td><td>171</td><td>70</td><td>99</td><td>172</td><td>161</td><td>115</td><td>58</td><td>48</td><td>22</td><td>141</td><td>144</td><td>38</td><td>31</td><td>27</td><td>18</td><td>10</td></tr>
-<tr><td>2016</td><td>650</td><td>531</td><td>368</td><td>395</td><td>457</td><td>321</td><td>373</td><td>376</td><td>325</td><td>215</td><td>158</td><td>181</td><td>104</td><td>273</td><td>274</td><td>141</td><td>114</td><td>81</td><td>74</td><td>53</td></tr>
-<tr><td>2017</td><td>909</td><td>625</td><td>552</td><td>498</td><td>463</td><td>416</td><td>441</td><td>388</td><td>310</td><td>204</td><td>209</td><td>199</td><td>144</td><td>200</td><td>191</td><td>148</td><td>166</td><td>180</td><td>163</td><td>76</td></tr>
-<tr><td>2018</td><td>1043</td><td>794</td><td>726</td><td>629</td><td>645</td><td>502</td><td>576</td><td>437</td><td>343</td><td>214</td><td>204</td><td>272</td><td>209</td><td>229</td><td>175</td><td>164</td><td>222</td><td>233</td><td>222</td><td>189</td></tr>
-<tr><td>2019</td><td>1070</td><td>827</td><td>639</td><td>702</td><td>703</td><td>612</td><td>720</td><td>548</td><td>434</td><td>299</td><td>295</td><td>273</td><td>289</td><td>378</td><td>151</td><td>272</td><td>159</td><td>260</td><td>197</td><td>220</td></tr>
-<tr><td>2020</td><td>1113</td><td>809</td><td>749</td><td>723</td><td>634</td><td>746</td><td>546</td><td>499</td><td>329</td><td>300</td><td>319</td><td>235</td><td>250</td><td>156</td><td>218</td><td>136</td><td>145</td><td>193</td><td>133</td><td>132</td></tr>
-<tr><td>2021</td><td>1616</td><td>1184</td><td>1006</td><td>1004</td><td>900</td><td>972</td><td>714</td><td>674</td><td>462</td><td>383</td><td>382</td><td>373</td><td>368</td><td>183</td><td>157</td><td>209</td><td>194</td><td>189</td><td>211</td><td>204</td></tr>
-<tr><td>2022</td><td>1091</td><td>1012</td><td>778</td><td>688</td><td>647</td><td>718</td><td>449</td><td>416</td><td>312</td><td>403</td><td>304</td><td>253</td><td>247</td><td>149</td><td>106</td><td>141</td><td>168</td><td>82</td><td>75</td><td>112</td></tr>
-<tr><td>2023</td><td>602</td><td>660</td><td>425</td><td>425</td><td>438</td><td>390</td><td>231</td><td>257</td><td>208</td><td>292</td><td>117</td><td>115</td><td>210</td><td>78</td><td>55</td><td>84</td><td>75</td><td>28</td><td>21</td><td>65</td></tr>
-</table>
+        {% for nav in navigation %}
+
+            <p style="margin-top: 50px">Web-разработчик</p>
+            <img class="logo" src="{% static 'images/logotip.png' %}">
             </div>
-            <img class="skills_graph" src={% static "images/skills_graph.png" %}/>
-            <div class="empty_skills"></div>
+            </header>
+            <main>
+            <div class="body" style="height: 1700px;">
+            <div class="navigation">
+                <nav>
+                    <ul>
+                        <li>
+                            <div><a href="/">{{ nav.first_item }}</a></div>
+                        </li>
+                        <li>
+                            <div><a
+                                    href={% url 'relevance' %}>{{ nav.second_item }}</a></div>
+                        </li>
+                        <li>
+                            <div><a
+                                    href={% url 'location' %}>{{ nav.third_item }}</a></div>
+                        </li>
+                        <li>
+                            <div style="border-radius: 0px 15px 15px 0px; background: #61082B;"><a
+                                    style="color: #B4D0E7 !important;"
+                                    href={% url 'abilities' %}>{{ nav.fourth_item }}</a></div>
+                        </li>
+                        <li>
+                            <div><a href={% url 'hh' %}>{{ nav.fifth_item }}</a></div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        {% endfor %}
+
+        <div class="home_text">
+            {% for data in context %}
+                <h1>{{ data.table_name }}</h1>
+                <div class="tables_skills">
+                    {{ data.data_table|safe }}
+                </div>
+                <img class="skills_graph" src={{ data.abilities_chart.url }}/>
+                <div class="empty_skills"></div>
+            {% endfor %}
         </div>
-    </div>
-</main>
+        </div>
+        </main>
 <footer>
-    <p>Кукарцева Дарья АТ-30&emsp;&emsp;</p>
+    {% for nav in navigation %}
+        <p>{{ nav.creator }}</p>
+    {% endfor %}
 </footer>
 </body>
 </html>
