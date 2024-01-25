@@ -34,7 +34,7 @@ class PageRenderer:
         if last_vacancies_data:
             vacancy_to_parse = last_vacancies_data[0].vacancy_to_analyze
             hh_api = API(vacancy_to_parse)
-            vacancies = hh_api.get_data_vacancies('2023-12-20', 10)
+            vacancies = hh_api.get_data_vacancies('2024-01-25', 10)
         else:
             vacancies = []
 
